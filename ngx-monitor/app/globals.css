@@ -1,0 +1,80 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #070C14;
+  color: #E2E8F0;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0D1421; }
+::-webkit-scrollbar-thumb { background: #00C896; border-radius: 2px; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px #00C89640; }
+  50% { box-shadow: 0 0 24px #00C89699; }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.card-hover {
+  transition: all 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #00C896 !important;
+}
+.filter-btn {
+  transition: all 0.15s ease;
+}
+.filter-btn:hover {
+  background: #00C89622 !important;
+}
+.scan-btn {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+.scan-btn:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: 0 0 32px #00C89688;
+}
+.scan-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.new-badge {
+  animation: glow 1.5s infinite;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+.pulse-anim {
+  animation: pulse 1s infinite;
+  display: inline-block;
+}
+.slide-in {
+  animation: slideIn 0.4s ease both;
+}
